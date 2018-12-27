@@ -11,8 +11,8 @@ public class ResourceManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        energyTracker = 110;
-        metalTracker = 5;
+        energyTracker = 0;
+        metalTracker = 100;
 	}
 	
 	// Update is called once per frame
