@@ -43,7 +43,7 @@ public class TurretAim : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && looking==true)
         {
-            Debug.Log("GotOne");
+            //Debug.Log("GotOne");
             looking = false;
             target = collision.gameObject;
         }
@@ -53,7 +53,7 @@ public class TurretAim : MonoBehaviour
      if (other.gameObject == target)
         {
 
-            Debug.Log("Buh Bye");
+            //Debug.Log("Buh Bye");
             looking = true;
         }
 
