@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public float moveSpeed;
-    private bool isStuck = false;
+    public bool isStuck = false;
     void Start()
     {
         StartCoroutine(KillPlayer());
