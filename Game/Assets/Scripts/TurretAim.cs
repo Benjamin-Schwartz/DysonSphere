@@ -9,6 +9,8 @@ public class TurretAim : MonoBehaviour
     private Vector3 enemyLoc;
     public bool looking;
     private GameObject target;
+    public GameObject pin;
+    private bool deployed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +18,16 @@ public class TurretAim : MonoBehaviour
         turretCollider = GetComponent<Collider2D>();
         turretCollider.enabled = !turretCollider.enabled;
         looking = true;
+        deployed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (turret.isStuck)
+        if (turret.isStuck && deployed ==false )
         {
             turretCollider.enabled =!turretCollider.enabled;
+            deployed = true;
         }
         if (looking == false)
         {
@@ -31,7 +35,7 @@ public class TurretAim : MonoBehaviour
             var dir = enemyLoc - transform.position;
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -270;
             //angle -=270;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            pin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 
@@ -44,10 +48,16 @@ public class TurretAim : MonoBehaviour
             target = collision.gameObject;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision == target)
+     if (other.gameObject == target)
+        {
+
             Debug.Log("Buh Bye");
+            looking = true;
+        }
+
+     
        // looking = true;
         //target = null;
     }
