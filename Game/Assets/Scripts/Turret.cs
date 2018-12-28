@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public float moveSpeed;
-    private bool isStuck = false;
+    public bool isStuck = false;
     void Start()
     {
         StartCoroutine(KillPlayer());
@@ -31,9 +31,13 @@ public class Turret : MonoBehaviour
     {
         if (collision.tag == "Circle")
         {
-            transform.SetParent(collision.transform);
-            transform.localRotation *= Quaternion.Euler(0, 0, 180);
-            isStuck = true;
+            if (!isStuck)
+            {
+                transform.SetParent(collision.transform);
+                transform.localRotation *= Quaternion.Euler(0, 0, 180);
+                isStuck = true;
+            }
+         
         }
     }
 }
