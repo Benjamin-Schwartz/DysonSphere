@@ -22,7 +22,7 @@ public class StarterSphere : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            Debug.Log(transform.rotation.eulerAngles.z);
+           
             transform.localRotation *= Quaternion.Euler(0, 0, 180);
             if (minerShooting == true)
             {
