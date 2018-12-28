@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StarterSphere : MonoBehaviour {
-    public float rotationSpeed;
-    public bool minerShooting = true;
-    public bool turretShooting = false;
+    //public float rotationSpeed;
+    public bool minerShooting;
+    public bool turretShooting;
     // Use this for initialization
     void Start () {
         minerShooting = true;
@@ -22,16 +22,19 @@ public class StarterSphere : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
+           
             transform.localRotation *= Quaternion.Euler(0, 0, 180);
-            if (transform.rotation.eulerAngles.z == 180)
+            if (minerShooting == true)
             {
                 minerShooting = false;
                 turretShooting = true;
             }
-            else {
-                turretShooting = false;
-                minerShooting = true; 
+            else
+            {
+               turretShooting = false;
+                minerShooting = true;
+            }
             }
         }
     }
-}
+
