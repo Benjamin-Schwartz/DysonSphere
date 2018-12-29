@@ -29,7 +29,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-<<<<<<< RocketTracking
+
         if (collision.gameObject.tag == "Rocket")
         {
             currentHealth -= 25;
@@ -37,15 +37,15 @@ public class Asteroid : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-=======
+        }
         if (collision.tag == "Circle")
         {
             currentHealth = 0;
             transform.SetParent(collision.transform);
-            
-            cameraShake.ShakeIt();
-
->>>>>>> master
+        }
+        if (collision.tag == "Player")
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
