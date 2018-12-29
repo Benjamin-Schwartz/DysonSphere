@@ -17,6 +17,7 @@ public class TurretAim : MonoBehaviour
     public float spawnTime;
     private RocketTargeting RocketTargeting;
     private GameObject tempTarget;
+    private GameObject RocketClone;
     
     // Start is called before the first frame update
     void Start()
@@ -52,11 +53,14 @@ public class TurretAim : MonoBehaviour
         {
             if (currentTime >= spawnTime)
             {
-                Rocket = Instantiate(Rocket, RocketSpawnPoint.transform.position, Quaternion.identity);
-                RocketTargeting = Rocket.GetComponent<RocketTargeting>();
+                RocketClone = Instantiate(Rocket, RocketSpawnPoint.transform.position, Quaternion.identity);
+                RocketTargeting = RocketClone.GetComponent<RocketTargeting>();
                 RocketTargeting.rocketTarget = target;
                 currentTime = 0;
             }
+        }else
+        {
+            looking = true;
         }
     }
 

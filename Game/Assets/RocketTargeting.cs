@@ -30,7 +30,7 @@ public class RocketTargeting : MonoBehaviour
         }
         else
         { 
-          //  Destroy(gameObject);
+           Destroy(gameObject);
         }
         
     }
@@ -46,7 +46,7 @@ public class RocketTargeting : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-         Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
