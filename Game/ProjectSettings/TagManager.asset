@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Circle
   - Enemy
+  - Rocket
   layers:
   - Default
   - TransparentFX

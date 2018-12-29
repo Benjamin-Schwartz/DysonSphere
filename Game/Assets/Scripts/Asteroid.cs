@@ -22,5 +22,16 @@ public class Asteroid : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, speed * Time.deltaTime);
         }
     }
-        
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Rocket")
+        {
+            currentHealth -= 5;
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

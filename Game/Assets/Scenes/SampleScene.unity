@@ -983,7 +983,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1224690106}
   - component: {fileID: 1224690105}
-  - component: {fileID: 1224690104}
   - component: {fileID: 1224690103}
   m_Layer: 0
   m_Name: Start
@@ -1006,18 +1005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minerShooting: 0
   turretShooting: 0
---- !u!114 &1224690104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224690102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f8f6e1b1d1c924a9ab96070ef7c3cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1224690105
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1222,7 +1209,7 @@ MonoBehaviour:
   xDistance: 5
   yDistance: 5
   stop: 0
-  spawnTime: 10000
+  spawnTime: 5
   currentTime: 0
 --- !u!4 &1598928420
 Transform:
