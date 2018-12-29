@@ -38,6 +38,11 @@ public class Turret : MonoBehaviour
                 isStuck = true;
             }
          
+         }
+        if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+            Debug.Log("ouch");
         }
     }
 }

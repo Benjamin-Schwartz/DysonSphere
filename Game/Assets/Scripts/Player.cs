@@ -42,7 +42,10 @@ public class Player : MonoBehaviour {
             isStuck = true;
             gathering = true;
         }
-    
+    if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator Gather(float time)
