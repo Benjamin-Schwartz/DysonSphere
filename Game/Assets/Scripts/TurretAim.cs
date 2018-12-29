@@ -11,9 +11,17 @@ public class TurretAim : MonoBehaviour
     private GameObject target;
     public GameObject pin;
     private bool deployed;
+    public GameObject Rocket;
+    public GameObject RocketSpawnPoint;
+    private float currentTime;
+    public float spawnTime;
+    private RocketTargeting RocketTargeting;
+    private GameObject tempTarget;
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         turret = FindObjectOfType<Turret>();
         turretCollider = GetComponent<Collider2D>();
         turretCollider.enabled = !turretCollider.enabled;
@@ -37,6 +45,8 @@ public class TurretAim : MonoBehaviour
             //angle -=270;
             pin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +56,17 @@ public class TurretAim : MonoBehaviour
             //Debug.Log("GotOne");
             looking = false;
             target = collision.gameObject;
+
+            //TurretShooting
+            currentTime += Time.deltaTime;
+            if (currentTime >= spawnTime)
+            {
+              Rocket = Instantiate(Rocket, RocketSpawnPoint.transform.position, Quaternion.identity);
+              RocketTargeting = Rocket.GetComponent<RocketTargeting>();
+                RocketTargeting.rocketTarget = target;
+                currentTime = 0;
+            }
+            
         }
     }
     private void OnTriggerExit2D(Collider2D other)

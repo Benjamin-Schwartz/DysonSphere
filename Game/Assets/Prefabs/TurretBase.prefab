@@ -27,7 +27,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0.12400007, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5966855637569879404}
   m_Father: {fileID: 7941847471275849998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -213,6 +214,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
   isStuck: 0
+--- !u!1 &2039231995446002851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5966855637569879404}
+  m_Layer: 0
+  m_Name: RocketSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5966855637569879404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039231995446002851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0361, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4596394625095080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6042829078413116657
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +319,8 @@ MonoBehaviour:
   turret: {fileID: 0}
   looking: 0
   pin: {fileID: 1023309214826034}
+  Rocket: {fileID: 8869879178222677573, guid: b26fd88f07af826428716908017bcf96, type: 3}
+  RocketSpawnPoint: {fileID: 2039231995446002851}
 --- !u!50 &5978870915027840880
 Rigidbody2D:
   serializedVersion: 4
