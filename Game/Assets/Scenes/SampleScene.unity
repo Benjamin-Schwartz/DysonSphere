@@ -1209,7 +1209,7 @@ MonoBehaviour:
   xDistance: 5
   yDistance: 5
   stop: 0
-  spawnTime: 5
+  spawnTime: 3
   currentTime: 0
 --- !u!4 &1598928420
 Transform:

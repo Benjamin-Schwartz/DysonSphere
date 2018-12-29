@@ -28,6 +28,11 @@ public class RocketTargeting : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         }
+        else
+        { 
+          //  Destroy(gameObject);
+        }
+        
     }
 
     public void MovingTowards(GameObject target)
@@ -35,5 +40,13 @@ public class RocketTargeting : MonoBehaviour
         
       transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+         Destroy(gameObject);
+        }
     }
 }

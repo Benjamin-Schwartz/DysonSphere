@@ -27,7 +27,7 @@ public class Asteroid : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Rocket")
         {
-            currentHealth -= 5;
+            currentHealth -= 25;
             if (currentHealth <= 0)
             {
                 Destroy(gameObject);
