@@ -11,9 +11,18 @@ public class TurretAim : MonoBehaviour
     private GameObject target;
     public GameObject pin;
     private bool deployed;
+    public GameObject Rocket;
+    public GameObject RocketSpawnPoint;
+    private float currentTime;
+    public float spawnTime;
+    private RocketTargeting RocketTargeting;
+    private GameObject tempTarget;
+    private GameObject RocketClone;
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         turret = FindObjectOfType<Turret>();
         turretCollider = GetComponent<Collider2D>();
         turretCollider.enabled = !turretCollider.enabled;
@@ -29,13 +38,29 @@ public class TurretAim : MonoBehaviour
             turretCollider.enabled =!turretCollider.enabled;
             deployed = true;
         }
-        if (looking == false)
+        if (looking == false && target != null)
         {
             enemyLoc = target.transform.position;
             var dir = enemyLoc - transform.position;
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -270;
             //angle -=270;
             pin.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
+        //TurretShooting
+        currentTime += Time.deltaTime;
+        if (target != null)
+        {
+            if (currentTime >= spawnTime)
+            {
+                RocketClone = Instantiate(Rocket, RocketSpawnPoint.transform.position, Quaternion.identity);
+                RocketTargeting = RocketClone.GetComponent<RocketTargeting>();
+                RocketTargeting.rocketTarget = target;
+                currentTime = 0;
+            }
+        }else
+        {
+            looking = true;
         }
     }
 
@@ -46,6 +71,9 @@ public class TurretAim : MonoBehaviour
             //Debug.Log("GotOne");
             looking = false;
             target = collision.gameObject;
+
+            
+            
         }
     }
     private void OnTriggerExit2D(Collider2D other)
