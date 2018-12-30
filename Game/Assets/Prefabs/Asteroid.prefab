@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  maxHealth: 100
+  maxHealth: 75
   currentHealth: 0
   Target: {fileID: 1087983053263574, guid: 00a6aaa01f144eb4d9e3f2054cd43d2d, type: 3}
 --- !u!58 &2898857314219125053
