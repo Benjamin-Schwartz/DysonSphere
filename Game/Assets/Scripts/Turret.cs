@@ -37,14 +37,14 @@ public class Turret : MonoBehaviour
                 transform.SetParent(collision.transform);
                 transform.localRotation *= Quaternion.Euler(0, 0, 180);
                 isStuck = true;
-                transform.position = new Vector3(transform.position.x, -30f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, -1.45f, transform.position.z);
             }
          
          }
         if (collision.tag == "Player")
         {
             Destroy(gameObject);
-            Debug.Log("ouch");
+            
         }
     }
 }

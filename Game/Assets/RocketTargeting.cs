@@ -29,8 +29,8 @@ public class RocketTargeting : MonoBehaviour
 
         }
         else
-        { 
-           Destroy(gameObject);
+        {
+            transform.Translate(new Vector3 (0, -moveSpeed, 0) *Time.deltaTime);
         }
         
     }
@@ -44,9 +44,10 @@ public class RocketTargeting : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "Obstacle")
         {
             Destroy(gameObject);
         }
+        
     }
 }

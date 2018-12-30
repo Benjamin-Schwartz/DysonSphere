@@ -51,7 +51,7 @@ public class TurretAim : MonoBehaviour
         currentTime += Time.deltaTime;
         if (target != null)
         {
-            if (currentTime >= spawnTime)
+            if (currentTime >= spawnTime && target.tag == "Enemy")
             {
                 RocketClone = Instantiate(Rocket, RocketSpawnPoint.transform.position, Quaternion.identity);
                 RocketTargeting = RocketClone.GetComponent<RocketTargeting>();

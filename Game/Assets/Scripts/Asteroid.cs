@@ -7,6 +7,7 @@ public class Asteroid : MonoBehaviour
     public float speed;
     public float maxHealth;
     public float currentHealth;
+    private bool isStuck;
 
     public GameObject Target;
 
@@ -14,6 +15,7 @@ public class Asteroid : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        isStuck = false;
         cameraShake = FindObjectOfType<cameraShake>();
         currentHealth = maxHealth;
     }
@@ -21,7 +23,7 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth > 0)
+        if (isStuck == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, speed * Time.deltaTime);
         }
@@ -40,8 +42,9 @@ public class Asteroid : MonoBehaviour
         }
         if (collision.tag == "Circle")
         {
-            currentHealth = 0;
+            isStuck = true;
             transform.SetParent(collision.transform);
+            gameObject.tag = "Obstacle";
         }
         if (collision.tag == "Player")
         {

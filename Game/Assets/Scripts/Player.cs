@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
         StartCoroutine(KillPlayer());
         resourceManager = FindObjectOfType<ResourceManager>();
         rb = GetComponent<Rigidbody2D>();
-        velocity = new Vector2(0f, 80f);
+        velocity = new Vector2(0f, 5f);
     }
 	
 	// Update is called once per frame
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
             transform.SetParent(collision.transform);
             isStuck = true;
             gathering = true;
-           transform.position = new Vector3(transform.position.x, -30f, transform.position.z);
+           transform.position = new Vector3(transform.position.x, -1.45f, transform.position.z);
         }
     if (collision.tag == "Player")
         {
