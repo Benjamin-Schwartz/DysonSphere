@@ -9,10 +9,11 @@ public class Turret : MonoBehaviour
     void Start()
     {
         StartCoroutine(KillPlayer());
+       
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isStuck)
         {
@@ -36,6 +37,7 @@ public class Turret : MonoBehaviour
                 transform.SetParent(collision.transform);
                 transform.localRotation *= Quaternion.Euler(0, 0, 180);
                 isStuck = true;
+                transform.position = new Vector3(transform.position.x, -30f, transform.position.z);
             }
          
          }

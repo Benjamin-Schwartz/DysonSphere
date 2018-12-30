@@ -7,16 +7,22 @@ public class Player : MonoBehaviour {
     public float moveSpeed;
     private bool isStuck = false;
     private bool gathering = false;
+    public Rigidbody2D rb;
+    private Vector2 velocity;
 	void Start () {
         StartCoroutine(KillPlayer());
         resourceManager = FindObjectOfType<ResourceManager>();
+        rb = GetComponent<Rigidbody2D>();
+        velocity = new Vector2(0f, 80f);
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (!isStuck)
         {
-            transform.Translate(0, moveSpeed, 0);
+            //transform.Translate(0, moveSpeed, 0);
+            rb.MovePosition(rb.position + velocity  * (Time.fixedDeltaTime));
+
         }
         if (gathering)
         {
@@ -26,6 +32,7 @@ public class Player : MonoBehaviour {
         }
         
     }
+     
     IEnumerator KillPlayer()
     {
         yield return new WaitForSeconds(2);
@@ -41,6 +48,7 @@ public class Player : MonoBehaviour {
             transform.SetParent(collision.transform);
             isStuck = true;
             gathering = true;
+           transform.position = new Vector3(transform.position.x, -30f, transform.position.z);
         }
     if (collision.tag == "Player")
         {
