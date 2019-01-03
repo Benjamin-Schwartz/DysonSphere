@@ -20,7 +20,7 @@ public class Pincher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, planet.transform.position) > 3)
+        if (Vector2.Distance(transform.position, planet.transform.position) > 3 && grappled == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, planet.transform.position, moveSpeed * Time.deltaTime);
 
@@ -29,9 +29,34 @@ public class Pincher : MonoBehaviour
         PincherTargeter childTarget = GetComponentInChildren<PincherTargeter>();
         target = childTarget.pinchtarget;
 
-        if(target != null)
+        if (target != null && grappled == false)
         {
             transform.SetParent(planet.transform);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        }else if (grappled == true){
+            transform.SetParent(null);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -1* moveSpeed * Time.deltaTime);
+            
+
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == target)
+        {
+            //Debug.Log("GotOne");
+            grappled = true;
+            collision.transform.parent = gameObject.transform;
+            StartCoroutine(Drop(2));
+        }
+    }
+
+    IEnumerator Drop(float time)
+    {
+        
+        yield return new WaitForSeconds(time);
+        target.transform.parent = null;
+        
+
     }
 }
