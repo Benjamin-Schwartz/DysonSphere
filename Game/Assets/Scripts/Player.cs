@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 
         }else if (falling == true && gameObject.transform.parent==null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(0,0), moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(0,0), 5 * Time.deltaTime);
         }
         if (gathering)
         {

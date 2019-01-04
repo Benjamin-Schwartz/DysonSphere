@@ -33,7 +33,7 @@ public class Pincher : MonoBehaviour
         {
             transform.SetParent(planet.transform);
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-        }else if (grappled == true){
+        }else if (grappled == true && target != null){
             transform.SetParent(null);
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -1* moveSpeed * Time.deltaTime);
             
