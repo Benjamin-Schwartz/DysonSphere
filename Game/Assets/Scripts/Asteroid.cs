@@ -26,6 +26,7 @@ public class Asteroid : MonoBehaviour
         if (isStuck == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, speed * Time.deltaTime);
+            transform.Rotate(0, 0, 0.75f);
         }
     }
 

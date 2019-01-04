@@ -673,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
-  moveSpeed: 0
+  moveSpeed: 2
   planet: {fileID: 485002584205895588, guid: 955d5aff124c2b64495060f2be0c1d3f, type: 3}
   target: {fileID: 0}
 --- !u!61 &4769630133880217602
