@@ -25,7 +25,7 @@ public class AsteroidSpawner : MonoBehaviour {
             if (currentTime >= spawnTime)
             {
                // spawnLoc = new Vector3(Random.Range(-xDistance, xDistance), Random.Range(-yDistance, yDistance), 0);
-                Instantiate(Asteroid, new Vector2(Random.Range(-xDistance, xDistance), Random.Range(-yDistance, yDistance)), Quaternion.identity);
+                Instantiate(Asteroid, new Vector2(Random.Range(-xDistance, xDistance)+ 2, Random.Range(-yDistance, yDistance) + 2), Quaternion.identity);
             currentTime = 0;
         }
 
