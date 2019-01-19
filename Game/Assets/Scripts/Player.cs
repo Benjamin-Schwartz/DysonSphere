@@ -9,9 +9,14 @@ public class Player : MonoBehaviour {
     private bool gathering = false;
     public Rigidbody2D rb;
     private Vector2 velocity;
+    //Energy bar stuff
+    private EnergyBar EnergyBar;
+  
+
     public bool falling = false; //If a player is picked up by a pincher, and then dropped.
 	void Start () {
         StartCoroutine(KillPlayer());
+        EnergyBar = FindObjectOfType<EnergyBar>();
         resourceManager = FindObjectOfType<ResourceManager>();
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0f, 5f);
@@ -70,6 +75,10 @@ public class Player : MonoBehaviour {
     {
         yield return new WaitForSeconds(time);
         resourceManager.metalTracker += 1;
+        if (EnergyBar.EnergyStatus < 1)
+        {
+            EnergyBar.EnergyStatus += .01f;
+        }
         gathering = true;
         
     }

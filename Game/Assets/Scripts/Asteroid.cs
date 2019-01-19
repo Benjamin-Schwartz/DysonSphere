@@ -11,10 +11,14 @@ public class Asteroid : MonoBehaviour
 
     public GameObject Target;
 
+    //EnergyBar stuff
+    private EnergyBar EnergyBar;
+
     private cameraShake cameraShake;
     // Use this for initialization
     void Start()
     {
+        EnergyBar = FindObjectOfType<EnergyBar>();
         isStuck = false;
         cameraShake = FindObjectOfType<cameraShake>();
         currentHealth = maxHealth;
@@ -46,6 +50,7 @@ public class Asteroid : MonoBehaviour
             isStuck = true;
             transform.SetParent(collision.transform);
             gameObject.tag = "Obstacle";
+            EnergyBar.EnergyStatus = 0;
         }
         if (collision.tag == "Player")
         {
