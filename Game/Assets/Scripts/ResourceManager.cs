@@ -18,16 +18,21 @@ public class ResourceManager : MonoBehaviour {
         EnergyBar = FindObjectOfType<EnergyBar>();
         energyTracker = 0;
         metalTracker = 100;
-	}
+        PlayerPrefs.SetFloat("Metal", metalTracker);
+        PlayerPrefs.Save();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         energyDisp.text = "Energy = " + energyTracker;
         metalDisp.text = "Metal = " + metalTracker;
+        
         if(EnergyBar.EnergyStatus >= 1f)
         {
             levelInfo.text = "You have completed level 1!";
             stop = true;
+            PlayerPrefs.SetFloat("Metal", metalTracker);
+            PlayerPrefs.Save();
         }
         
 	}
