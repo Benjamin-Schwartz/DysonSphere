@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3d269e4189db5468ac58ae67ddcaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   chasing: 0
   rocketTarget: {fileID: 0}
 --- !u!50 &378155871513660112
