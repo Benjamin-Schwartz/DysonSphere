@@ -19,7 +19,7 @@ public class SpawnPlayers : MonoBehaviour {
             if (resourceManager.metalTracker >= 10)
             {
                 Instantiate(player, transform.position, transform.rotation);
-                resourceManager.metalTracker -= 10;
+                resourceManager.metalTracker -= 0;
             }
         }
 

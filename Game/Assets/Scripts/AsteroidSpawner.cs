@@ -25,7 +25,7 @@ public class AsteroidSpawner : MonoBehaviour {
 	void Start () {
        
     EnergyBar = FindObjectOfType<EnergyBar>();
-
+         
 }
 
     // Update is called once per frame
