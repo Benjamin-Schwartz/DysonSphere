@@ -58,7 +58,9 @@ public class Pincher : MonoBehaviour
         
         yield return new WaitForSeconds(time);
         target.transform.parent = null;
-        grappled = false;
+        yield return new WaitForSeconds(time + 3);
+        Destroy(gameObject);
+        //grappled = false;
 
     }
 }
