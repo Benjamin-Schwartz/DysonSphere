@@ -68,25 +68,16 @@ public class TurretAim : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && looking==true)
         {
-            //Debug.Log("GotOne");
+          
             looking = false;
-            target = collision.gameObject;
-
-            
-            
+            target = collision.gameObject; 
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
      if (other.gameObject == target)
         {
-
-            //Debug.Log("Buh Bye");
             looking = true;
         }
-
-     
-       // looking = true;
-        //target = null;
     }
 }

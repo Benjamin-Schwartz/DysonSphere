@@ -43,11 +43,10 @@ public class AsteroidSpawner : MonoBehaviour {
 
         if (currentTime >= spawnTime && EnergyBar.EnergyStatus < 1)
          {
-            //Instantiate(Asteroid, new Vector2(Random.Range(-xDistance, xDistance)+ 3, Random.Range(-yDistance, yDistance) + 3), Quaternion.identity);
             Vector3 pos = RandomCirlce(center, 5.0f);
-           // Quaternion rot = Quaternion.FromToRotation(0,0,0);
             Instantiate(Asteroid, pos, transform.rotation);
-         currentTime = 0;
+            spawnTime -= .05f;
+            currentTime = 0;
         
         }
 
@@ -59,11 +58,9 @@ public class AsteroidSpawner : MonoBehaviour {
         pos.x = center.x + radius + Mathf.Sin(ang * Mathf.Deg2Rad);
         pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
         pos.z = center.z;
-        return pos;
+        return 
+            pos;
     }
-    
-   
-
         }
     
    
