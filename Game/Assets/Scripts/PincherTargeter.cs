@@ -10,6 +10,7 @@ public class PincherTargeter : MonoBehaviour
     void Start()
     {
         looking = true;
+        
     }
 
     // Update is called once per frame
@@ -22,10 +23,21 @@ public class PincherTargeter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && looking == true)
         {
-            //Debug.Log("GotOne");
+            Debug.Log("GotOne");
             looking = false;
             pinchtarget = collision.gameObject;
-            
+            StartCoroutine(Drop(2));
+
         }
     }
+
+    IEnumerator Drop(float time)
+    {
+
+        yield return new WaitForSeconds(time);
+        Debug.Log("Called");
+        looking = true;
+
+    }
+
 }
