@@ -43,7 +43,7 @@ public class AsteroidSpawner : MonoBehaviour {
 
         if (currentTime >= spawnTime && EnergyBar.EnergyStatus < 1)
          {
-            Vector3 pos = RandomCirlce(center, 5.0f);
+            Vector3 pos = RandomCirlce(center, 4.5f);
             Instantiate(Asteroid, pos, transform.rotation);
             spawnTime -= .05f;
             currentTime = 0;
