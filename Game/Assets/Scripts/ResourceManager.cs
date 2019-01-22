@@ -18,7 +18,7 @@ public class ResourceManager : MonoBehaviour {
         EnergyBar = FindObjectOfType<EnergyBar>();
         energyTracker = 0;
         metalTracker = 100;
-        PlayerPrefs.SetFloat("Metal", metalTracker);
+        PlayerPrefs.GetFloat("Metal", metalTracker);
         PlayerPrefs.Save();
     }
 	
