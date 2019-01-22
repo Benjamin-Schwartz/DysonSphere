@@ -46,6 +46,7 @@ public class AsteroidSpawner : MonoBehaviour {
             Vector3 pos = RandomCirlce(center, 4.5f);
             Instantiate(Asteroid, pos, transform.rotation);
             spawnTime -= .05f;
+         
             currentTime = 0;
         
         }
@@ -53,11 +54,13 @@ public class AsteroidSpawner : MonoBehaviour {
    }
     Vector3 RandomCirlce(Vector3 center, float radius)
     {
-        float ang = Random.value * 360;
+        float ang = Random.value * 6.28f;
         Vector3 pos;
-        pos.x = center.x + radius + Mathf.Sin(ang * Mathf.Deg2Rad);
-        pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        Debug.Log("ang = " + ang + ", sin = " + (radius + Mathf.Sin(ang)) + " cos = " + (radius + Mathf.Cos(ang)));
+        pos.x = center.x + (radius * Mathf.Sin(ang));
+        pos.y = center.y + (radius * Mathf.Cos(ang));
         pos.z = center.z;
+        Debug.Log(ang);
         return 
             pos;
     }
