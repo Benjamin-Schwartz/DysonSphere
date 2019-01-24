@@ -620,7 +620,7 @@ MonoBehaviour:
   initialbuildTime: 0
   numnObjects: 10
   center: {x: 0, y: 0, z: 0}
-  spawnTime: 3
+  spawnTime: 4.5
   currentTime: 0
 --- !u!4 &677733084
 Transform:
@@ -5551,7 +5551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1584420322949714, guid: 47f87b008a4c37642b57a79f882323d3, type: 3}
   StarterSphere: {fileID: 1603583953}
-  rechargeTime: 2
+  rechargeTime: 3.5
   numOfMiners: 0
 --- !u!1 &1332663664
 GameObject:
@@ -6003,7 +6003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 1363375207443274, guid: e2b02a4fa6e653e4aa34a6fb6586efaa, type: 3}
   StarterSphere: {fileID: 1603583953}
-  rechargeTime: 4
+  rechargeTime: 4.5
   numOfTurrets: 0
 --- !u!1 &1968918339
 GameObject:

@@ -18,10 +18,12 @@ public class EnergyBar : MonoBehaviour
     void Update()
     {
         bar.localScale = new Vector3(EnergyStatus, 1f);
+        Debug.Log(EnergyStatus);
     }
     public void setSize(float EnergyStatus)
     {
         bar.localScale = new Vector3(EnergyStatus, 1f);
+        
     }
     
 }

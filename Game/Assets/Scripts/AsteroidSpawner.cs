@@ -45,7 +45,7 @@ public class AsteroidSpawner : MonoBehaviour {
          {
             Vector3 pos = RandomCirlce(center, 4.5f);
             Instantiate(Asteroid, pos, transform.rotation);
-            spawnTime -= .05f;
+            spawnTime -= .08f;
             currentTime = 0;
         
         }

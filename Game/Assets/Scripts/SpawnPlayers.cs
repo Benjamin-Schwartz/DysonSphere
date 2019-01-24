@@ -34,7 +34,6 @@ public class SpawnPlayers : MonoBehaviour {
         if (currentTime < rechargeTime)
         {
             currentTime += Time.deltaTime;
-            Debug.Log(currentTime);
             if (currentTime >= rechargeTime && numOfMiners < maxMiners)
             {
                 numOfMiners += 1;
