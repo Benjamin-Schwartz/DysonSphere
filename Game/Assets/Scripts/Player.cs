@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     private Vector2 velocity;
     //Energy bar stuff
     private EnergyBar EnergyBar;
+
+
   
 
     public bool falling = false; //If a player is picked up by a pincher, and then dropped.
@@ -74,7 +76,7 @@ public class Player : MonoBehaviour {
     IEnumerator Gather(float time)
     {
         yield return new WaitForSeconds(time);
-        resourceManager.metalTracker += 1;
+       // resourceManager.metalTracker += 1;
         if (EnergyBar.EnergyStatus < 1)
         {
             EnergyBar.EnergyStatus += .01f;
