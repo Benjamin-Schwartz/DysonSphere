@@ -10,6 +10,7 @@ public class Asteroid : MonoBehaviour
     private bool isStuck;
 
     public GameObject Target;
+    public GameObject explosion;
 
     //EnergyBar stuff
     private EnergyBar EnergyBar;
@@ -42,6 +43,7 @@ public class Asteroid : MonoBehaviour
             currentHealth -= 25;
             if (currentHealth <= 0)
             {
+                Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
         }

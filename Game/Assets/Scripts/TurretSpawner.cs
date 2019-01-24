@@ -8,24 +8,47 @@ public class TurretSpawner : MonoBehaviour
     public StarterSphere StarterSphere;
     private ResourceManager resourceManager;
 
+    private float currentTime;
+    public float rechargeTime;
+    public int numOfTurrets;
+    private int maxTurrets;
+
     // Use this for initialization
     void Start()
     {
+        maxTurrets = 10;
+        numOfTurrets = 3;
         StarterSphere = FindObjectOfType<StarterSphere>();
         resourceManager = FindObjectOfType<ResourceManager>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (Input.GetKeyDown("space") && StarterSphere.turretShooting == true)
         {
-            if (resourceManager.metalTracker >= 5)
+            if (numOfTurrets > 0)
             {
                 Instantiate(turret, transform.position, transform.rotation);
-                resourceManager.metalTracker -= 5;
+                numOfTurrets -= 1;
+            }
+
+        }
+        if (currentTime < rechargeTime)
+        {
+            currentTime += Time.deltaTime;
+            Debug.Log(currentTime);
+            if (currentTime >= rechargeTime && numOfTurrets < maxTurrets)
+            {
+                numOfTurrets += 1;
+                currentTime = 0;
+            }
+            if (numOfTurrets == maxTurrets)
+            {
+                currentTime = 0;
             }
         }
 
     }
+
+
 }
