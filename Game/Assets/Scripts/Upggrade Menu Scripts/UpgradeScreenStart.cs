@@ -13,7 +13,7 @@ public class UpgradeScreenStart : MonoBehaviour
     {
         //Set Values in PlayerPrefs
         PlayerPrefs.SetFloat("MineSpeed", PlayerPrefs.GetFloat("MineSpeed", 1f));
-
+        PlayerPrefs.SetFloat("BuildTime", PlayerPrefs.GetFloat("MineSpeed", 1f));
 
         // Temporary! Delete When main menu is created!!!
         PlayerPrefs.SetFloat("MineSpeed", 1);
