@@ -73,6 +73,10 @@ public class Player : MonoBehaviour {
             gathering = false;
             falling = true;
         }
+    else if (collision.tag == "Notification")
+        {
+            return;
+        }
     }
 
     IEnumerator Gather(float time)
