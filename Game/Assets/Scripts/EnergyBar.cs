@@ -6,7 +6,6 @@ public class EnergyBar : MonoBehaviour
 {
     public Transform bar;
     public float EnergyStatus;
-    // Start is called before the first frame update
     private void Start()
         
     {
@@ -16,15 +15,15 @@ public class EnergyBar : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-       // Transform bar = transform.Find("Bar");
         bar.localScale = new Vector3(EnergyStatus, 1f);
+        Debug.Log(EnergyStatus);
     }
     public void setSize(float EnergyStatus)
     {
         bar.localScale = new Vector3(EnergyStatus, 1f);
+        
     }
     
 }

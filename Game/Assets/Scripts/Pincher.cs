@@ -15,6 +15,7 @@ public class Pincher : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        planet = GameObject.FindGameObjectWithTag("Circle");
     }
 
     // Update is called once per frame
@@ -48,6 +49,7 @@ public class Pincher : MonoBehaviour
             grappled = true;
             collision.transform.parent = gameObject.transform;
             StartCoroutine(Drop(2));
+
         }
     }
 
@@ -56,7 +58,9 @@ public class Pincher : MonoBehaviour
         
         yield return new WaitForSeconds(time);
         target.transform.parent = null;
-        
+        yield return new WaitForSeconds(time + 3);
+        Destroy(gameObject);
+        //grappled = false;
 
     }
 }

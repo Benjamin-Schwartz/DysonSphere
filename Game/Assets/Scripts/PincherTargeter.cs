@@ -23,7 +23,9 @@ public class PincherTargeter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && looking == true)
         {
+
            // Debug.Log("GotOne");
+
             looking = false;
             pinchtarget = collision.gameObject;
             StartCoroutine(Drop(2));
@@ -35,7 +37,9 @@ public class PincherTargeter : MonoBehaviour
     {
 
         yield return new WaitForSeconds(time);
+
         //Debug.Log("Called");
+
         looking = true;
 
     }

@@ -10,6 +10,7 @@ public class Asteroid : MonoBehaviour
     private bool isStuck;
 
     public GameObject Target;
+    public GameObject explosion;
 
     //EnergyBar stuff
     private EnergyBar EnergyBar;
@@ -22,6 +23,7 @@ public class Asteroid : MonoBehaviour
         isStuck = false;
         cameraShake = FindObjectOfType<cameraShake>();
         currentHealth = maxHealth;
+        
     }
 
     // Update is called once per frame
@@ -36,12 +38,18 @@ public class Asteroid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.tag == "Rocket")
+        if (collision.gameObject.tag == "Rocket") { 
+        if ( EnergyBar.EnergyStatus < .5f)
         {
             currentHealth -= 25;
+
+        } if ( EnergyBar.EnergyStatus > .6f)
+        {
+            currentHealth -= 15;
+        }
             if (currentHealth <= 0)
             {
+                Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
         }
@@ -56,5 +64,6 @@ public class Asteroid : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        
     }
 }

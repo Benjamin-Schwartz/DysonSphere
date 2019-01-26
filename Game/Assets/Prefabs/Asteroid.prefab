@@ -114,6 +114,8 @@ MonoBehaviour:
   maxHealth: 75
   currentHealth: 0
   Target: {fileID: 485002584205895588, guid: 955d5aff124c2b64495060f2be0c1d3f, type: 3}
+  explosion: {fileID: 2806596396182631863, guid: 5f985a6294f43604a968541c4d766f90,
+    type: 3}
 --- !u!50 &5020335574581396271
 Rigidbody2D:
   serializedVersion: 4

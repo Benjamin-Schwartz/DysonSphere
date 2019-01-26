@@ -16,6 +16,12 @@ public class AsteroidSpawner : MonoBehaviour {
     public float initialbuildTime;
     private EnergyBar EnergyBar;
 
+    //circular spawning
+    public int numnObjects = 10;
+    public Vector3 center;
+    
+
+
 
 
     public float spawnTime;
@@ -23,8 +29,10 @@ public class AsteroidSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       
-    EnergyBar = FindObjectOfType<EnergyBar>();
+         center = transform.position;
+        EnergyBar = FindObjectOfType<EnergyBar>();
+        
+
          
 }
 
@@ -35,14 +43,27 @@ public class AsteroidSpawner : MonoBehaviour {
 
         if (currentTime >= spawnTime && EnergyBar.EnergyStatus < 1)
          {
-        Instantiate(Asteroid, new Vector2(Random.Range(-xDistance, xDistance)+ 3, Random.Range(-yDistance, yDistance) + 3), Quaternion.identity);
-         currentTime = 0;
+            Vector3 pos = RandomCirlce(center, 4.5f);
+            Instantiate(Asteroid, pos, transform.rotation);
+            spawnTime -= .08f;
+         
+            currentTime = 0;
         
         }
 
    }
-   
-
+    Vector3 RandomCirlce(Vector3 center, float radius)
+    {
+        float ang = Random.value * 6.28f;
+        Vector3 pos;
+        Debug.Log("ang = " + ang + ", sin = " + (radius + Mathf.Sin(ang)) + " cos = " + (radius + Mathf.Cos(ang)));
+        pos.x = center.x + (radius * Mathf.Sin(ang));
+        pos.y = center.y + (radius * Mathf.Cos(ang));
+        pos.z = center.z;
+        Debug.Log(ang);
+        return 
+            pos;
+    }
         }
     
    
