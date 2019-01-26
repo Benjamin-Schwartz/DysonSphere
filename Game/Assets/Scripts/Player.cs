@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
     private Vector2 velocity;
     //Energy bar stuff
     private EnergyBar EnergyBar;
-    public followobject followobject;
+    private followobject followobject;
 
     public float mineSpeed;
     public GameObject notification; 
@@ -23,7 +23,8 @@ public class Player : MonoBehaviour {
         StartCoroutine(KillPlayer());
         EnergyBar = FindObjectOfType<EnergyBar>();
         resourceManager = FindObjectOfType<ResourceManager>();
-        rb = GetComponent<Rigidbody2D>();
+        followobject = FindObjectOfType<followobject>();
+    rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0f, 5f);
         mineSpeed=PlayerPrefs.GetFloat("MineSpeed", 1);
     }
@@ -62,7 +63,8 @@ public class Player : MonoBehaviour {
         {
             transform.SetParent(collision.transform);
             notification.transform.SetParent(collision.transform);
-            notification.transform.position = new Vector3(notification.transform.position.x, transform.position.y -5.0f, 0);
+            notification.transform.position = new Vector3(notification.transform.position.x, transform.position.y -0.3f, 0);
+           // followobject.notifIsStuck = true;
             isStuck = true;
             gathering = true;
            transform.position = new Vector3(transform.position.x, -1.45f, transform.position.z);

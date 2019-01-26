@@ -6,7 +6,7 @@ public class followobject : MonoBehaviour
 {
     public GameObject followThis;
     public GameObject planet;
-    public bool isStuck = false;
+    public bool notifIsStuck = false;
     private bool gathering = false;
     public Rigidbody2D rb;
     private Vector2 velocity;
@@ -21,7 +21,7 @@ public class followobject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isStuck)
+        if (!notifIsStuck)
         {
             transform.position = new Vector3(followThis.transform.position.x, followThis.transform.position.y-0.5f , 0);
         }
@@ -33,7 +33,8 @@ public class followobject : MonoBehaviour
         if (collision.tag == "Circle")
         {
             
-            isStuck = true;
+            
+            notifIsStuck = true;
             gathering = true;
            // transform.position = new Vector3(transform.position.x, -1.0f, transform.position.z);
         }
