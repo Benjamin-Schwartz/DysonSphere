@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 0}
+  rb: {fileID: 396959566327027279}
+  followobject: {fileID: 0}
   mineSpeed: 0
   notification: {fileID: 2978066143127636640}
   falling: 0
@@ -146,8 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4257659209833739783}
   - component: {fileID: 2442987131707733655}
-  - component: {fileID: 3291523693360393215}
-  - component: {fileID: 8275949908191527425}
+  - component: {fileID: 4041840528157434559}
   m_Layer: 0
   m_Name: metalicon
   m_TagString: Notification
@@ -163,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2978066143127636640}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.056, y: -0.585, z: 0}
+  m_LocalPosition: {x: 0.056, y: -0.779, z: 0}
   m_LocalScale: {x: 0.6662, y: 0.6662, z: 0}
   m_Children: []
   m_Father: {fileID: 8116217985930480109}
@@ -217,21 +217,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3291523693360393215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2978066143127636640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc89c2e78b40d84bbbb0a919d11b92c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followThis: {fileID: 374669849870623693}
-  planet: {fileID: 0}
---- !u!58 &8275949908191527425
+--- !u!58 &4041840528157434559
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,12 +227,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00000047683716, y: 0.00000047683716}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 0.6767969
 --- !u!1 &4754360838565106611
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4754360838565106611}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0781832, y: 4.044971, z: -0.01171875}
+  m_LocalPosition: {x: -3.0781832, y: 3.988, z: -0.01171875}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 371496924164494363}

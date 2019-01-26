@@ -389,9 +389,11 @@ MonoBehaviour:
   Wave: 0
   numberOfEnemies: 0
   stop: 0
-
+  buildTime: 0
+  initialbuildTime: 0
+  numnObjects: 10
+  center: {x: 0, y: 0, z: 0}
   spawnTime: 1000
-
   currentTime: 0
 --- !u!4 &677733084
 Transform:
@@ -622,8 +624,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c358d9c93cb475f40b1396b7c008ccbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4714143942153803008, guid: 47f87b008a4c37642b57a79f882323d3, type: 3}
+  player: {fileID: 4754360838565106611, guid: 2fcbbf9ea99785f4596920246ba3cc83, type: 3}
   StarterSphere: {fileID: 1603583953}
+  rechargeTime: 0
+  numOfMiners: 0
 --- !u!1 &1332663664
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +685,8 @@ MonoBehaviour:
   metalTracker: 0
   metalDisp: {fileID: 12038633}
   levelInfo: {fileID: 0}
+  Miners: {fileID: 0}
+  Turrets: {fileID: 0}
   stop: 0
 --- !u!114 &1332663667
 MonoBehaviour:
@@ -1052,6 +1058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 1363375207443274, guid: e2b02a4fa6e653e4aa34a6fb6586efaa, type: 3}
   StarterSphere: {fileID: 1603583953}
+  rechargeTime: 0
+  numOfTurrets: 0
 --- !u!1 &1968918339
 GameObject:
   m_ObjectHideFlags: 0

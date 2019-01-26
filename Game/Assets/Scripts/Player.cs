@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     private Vector2 velocity;
     //Energy bar stuff
     private EnergyBar EnergyBar;
+    public followobject followobject;
 
     public float mineSpeed;
     public GameObject notification; 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour {
 
     public bool falling = false; //If a player is picked up by a pincher, and then dropped.
 	void Start () {
+        SpriteRenderer notificationSR = notification.GetComponent<SpriteRenderer>();
         StartCoroutine(KillPlayer());
         EnergyBar = FindObjectOfType<EnergyBar>();
         resourceManager = FindObjectOfType<ResourceManager>();
@@ -59,9 +61,12 @@ public class Player : MonoBehaviour {
         if (collision.tag == "Circle" && !falling)
         {
             transform.SetParent(collision.transform);
+            notification.transform.SetParent(collision.transform);
+            notification.transform.position = new Vector3(notification.transform.position.x, transform.position.y -5.0f, 0);
             isStuck = true;
             gathering = true;
            transform.position = new Vector3(transform.position.x, -1.45f, transform.position.z);
+            
         }
     else if (collision.tag == "Player" || collision.tag == "Circle" && falling)
         {
@@ -84,7 +89,10 @@ public class Player : MonoBehaviour {
         yield return new WaitForSeconds(time);
 
         resourceManager.metalTracker += mineSpeed;
-        notification.SetActive(true);
+        notification.GetComponent<Renderer>().enabled = true;
+        notification.GetComponent<Collider2D>().enabled = true;
+        
+        
 
         if (EnergyBar.EnergyStatus < 1)
         {
