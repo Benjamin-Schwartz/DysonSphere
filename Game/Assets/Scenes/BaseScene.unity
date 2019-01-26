@@ -385,8 +385,13 @@ MonoBehaviour:
     type: 3}
   xDistance: 5
   yDistance: 5
+  waveText: {fileID: 0}
+  Wave: 0
+  numberOfEnemies: 0
   stop: 0
+
   spawnTime: 1000
+
   currentTime: 0
 --- !u!4 &677733084
 Transform:
@@ -617,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c358d9c93cb475f40b1396b7c008ccbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1584420322949714, guid: 47f87b008a4c37642b57a79f882323d3, type: 3}
+  player: {fileID: 4714143942153803008, guid: 47f87b008a4c37642b57a79f882323d3, type: 3}
   StarterSphere: {fileID: 1603583953}
 --- !u!1 &1332663664
 GameObject:
@@ -675,6 +680,8 @@ MonoBehaviour:
   energyDisp: {fileID: 93394264}
   metalTracker: 0
   metalDisp: {fileID: 12038633}
+  levelInfo: {fileID: 0}
+  stop: 0
 --- !u!114 &1332663667
 MonoBehaviour:
   m_ObjectHideFlags: 0

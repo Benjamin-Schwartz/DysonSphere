@@ -24,18 +24,24 @@ public class ResourceManager : MonoBehaviour {
         TurretSpawner = FindObjectOfType<TurretSpawner>();
         energyTracker = 0;
         metalTracker = 100;
-	}
+        PlayerPrefs.GetFloat("Metal", metalTracker);
+        PlayerPrefs.Save();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         energyDisp.text = "Energy = " + energyTracker;
         metalDisp.text = "Metal = " + metalTracker;
+
         Miners.text = "Miners: " + SpawnPlayers.numOfMiners;
         Turrets.text = "Turrets: " + TurretSpawner.numOfTurrets;
+
         if(EnergyBar.EnergyStatus >= 1f)
         {
             levelInfo.text = "You have completed level 1!";
             stop = true;
+            PlayerPrefs.SetFloat("Metal", metalTracker);
+            PlayerPrefs.Save();
         }
         
 	}

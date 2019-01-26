@@ -12,8 +12,9 @@ public class Player : MonoBehaviour {
     //Energy bar stuff
     private EnergyBar EnergyBar;
 
+    public float mineSpeed;
+    public GameObject notification; 
 
-  
 
     public bool falling = false; //If a player is picked up by a pincher, and then dropped.
 	void Start () {
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour {
         resourceManager = FindObjectOfType<ResourceManager>();
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0f, 5f);
+        mineSpeed=PlayerPrefs.GetFloat("MineSpeed", 1);
     }
 	
 	// Update is called once per frame
@@ -76,7 +78,10 @@ public class Player : MonoBehaviour {
     IEnumerator Gather(float time)
     {
         yield return new WaitForSeconds(time);
-       // resourceManager.metalTracker += 1;
+
+        resourceManager.metalTracker += mineSpeed;
+        notification.SetActive(true);
+
         if (EnergyBar.EnergyStatus < 1)
         {
             EnergyBar.EnergyStatus += .01f;
