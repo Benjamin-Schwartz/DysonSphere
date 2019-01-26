@@ -36,13 +36,13 @@ public class TurretSpawner : MonoBehaviour
         if (currentTime < rechargeTime)
         {
             currentTime += Time.deltaTime;
-            Debug.Log(currentTime);
+
             if (currentTime >= rechargeTime && numOfTurrets < maxTurrets)
             {
                 numOfTurrets += 1;
                 currentTime = 0;
             }
-            if (numOfTurrets == maxTurrets)
+            if (numOfTurrets == maxTurrets) 
             {
                 currentTime = 0;
             }

@@ -60,7 +60,7 @@ public class AsteroidSpawner : MonoBehaviour {
         pos.x = center.x + (radius * Mathf.Sin(ang));
         pos.y = center.y + (radius * Mathf.Cos(ang));
         pos.z = center.z;
-        Debug.Log(ang);
+       
         return 
             pos;
     }
