@@ -64,6 +64,10 @@ public class Asteroid : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        
+        if (collision.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

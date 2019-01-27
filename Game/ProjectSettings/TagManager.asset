@@ -9,6 +9,8 @@ TagManager:
   - Rocket
   - Obstacle
   - Bar
+  - Notification
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -43,11 +45,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Front
     uniqueID: 3550302247
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: 1
     uniqueID: 4206490143
@@ -57,4 +59,7 @@ TagManager:
     locked: 0
   - name: New Layer
     uniqueID: 4226072855
+    locked: 0
+  - name: New Layer
+    uniqueID: 3497599095
     locked: 0
