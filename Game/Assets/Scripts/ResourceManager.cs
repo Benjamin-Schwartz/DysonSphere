@@ -33,8 +33,8 @@ public class ResourceManager : MonoBehaviour {
         energyDisp.text = "Energy = " + energyTracker;
         metalDisp.text = "Metal = " + metalTracker;
 
-        //Miners.text = "Miners: " + SpawnPlayers.numOfMiners;
-       // Turrets.text = "Turrets: " + TurretSpawner.numOfTurrets;
+        Miners.text = "Miners: " + SpawnPlayers.numOfMiners;
+       Turrets.text = "Turrets: " + TurretSpawner.numOfTurrets;
 
         if(EnergyBar.EnergyStatus >= 1f)
         {

@@ -56,7 +56,7 @@ public class AsteroidSpawner : MonoBehaviour {
     {
         float ang = Random.value * 6.28f;
         Vector3 pos;
-        Debug.Log("ang = " + ang + ", sin = " + (radius + Mathf.Sin(ang)) + " cos = " + (radius + Mathf.Cos(ang)));
+        //Debug.Log("ang = " + ang + ", sin = " + (radius + Mathf.Sin(ang)) + " cos = " + (radius + Mathf.Cos(ang)));
         pos.x = center.x + (radius * Mathf.Sin(ang));
         pos.y = center.y + (radius * Mathf.Cos(ang));
         pos.z = center.z;

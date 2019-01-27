@@ -7,14 +7,14 @@ public class followobject : MonoBehaviour
     public GameObject followThis;
     public GameObject planet;
     public bool notifIsStuck = false;
-    private bool gathering = false;
-    public Rigidbody2D rb;
-    private Vector2 velocity;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        velocity = new Vector2(0f, 5f);
+        
+        
         planet = GameObject.FindGameObjectWithTag("Circle");
     }
 
@@ -35,7 +35,7 @@ public class followobject : MonoBehaviour
             
             
             notifIsStuck = true;
-            gathering = true;
+           
            // transform.position = new Vector3(transform.position.x, -1.0f, transform.position.z);
         }
     }

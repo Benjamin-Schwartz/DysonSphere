@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
     private Vector2 velocity;
     //Energy bar stuff
     private EnergyBar EnergyBar;
-    private followobject followobject;
+    //private followobject followobject;
 
     public float mineSpeed;
     public GameObject notification; 
@@ -19,11 +19,11 @@ public class Player : MonoBehaviour {
 
     public bool falling = false; //If a player is picked up by a pincher, and then dropped.
 	void Start () {
-        SpriteRenderer notificationSR = notification.GetComponent<SpriteRenderer>();
+        //SpriteRenderer notificationSR = notification.GetComponent<SpriteRenderer>();
         StartCoroutine(KillPlayer());
         EnergyBar = FindObjectOfType<EnergyBar>();
         resourceManager = FindObjectOfType<ResourceManager>();
-        followobject = FindObjectOfType<followobject>();
+       // followobject = FindObjectOfType<followobject>();
     rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0f, 5f);
         mineSpeed=PlayerPrefs.GetFloat("MineSpeed", 1);
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
         }
         if (gathering)
         {
-            StartCoroutine(Gather(1));
+            StartCoroutine(Gather(5));
             gathering = false;
             
         }
