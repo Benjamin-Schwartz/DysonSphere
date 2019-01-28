@@ -9,6 +9,8 @@ TagManager:
   - Rocket
   - Obstacle
   - Bar
+  - Notification
+  - SpaceBullet
   layers:
   - Default
   - TransparentFX

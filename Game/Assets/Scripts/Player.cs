@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
     {
         yield return new WaitForSeconds(time);
 
-        resourceManager.metalTracker += mineSpeed;
+   
         notification.GetComponent<Renderer>().enabled = true;
         notification.GetComponent<Collider2D>().enabled = true;
         

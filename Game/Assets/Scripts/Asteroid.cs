@@ -34,11 +34,17 @@ public class Asteroid : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, speed * Time.deltaTime);
             transform.Rotate(0, 0, 0.75f);
         }
+        if (currentHealth <= 0)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Rocket") { 
+        if (collision.gameObject.tag == "Rocket") {
+            
         if ( EnergyBar.EnergyStatus < .5f)
         {
             currentHealth -= 25;
@@ -63,6 +69,11 @@ public class Asteroid : MonoBehaviour
         if (collision.tag == "Player")
         {
             Destroy(collision.gameObject);
+        }
+        if (collision.tag == "SpaceBullet")
+        {
+            Destroy(collision.gameObject);
+            currentHealth -= 20;
         }
         
     }
