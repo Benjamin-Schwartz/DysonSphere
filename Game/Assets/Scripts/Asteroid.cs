@@ -63,7 +63,8 @@ public class Asteroid : MonoBehaviour
         {
             isStuck = true;
             transform.SetParent(collision.transform);
-            gameObject.tag = "Obstacle";
+            //gameObject.tag = "Obstacle";
+            StartCoroutine(Obstacle());
             EnergyBar.EnergyStatus = 0;
         }
         if (collision.tag == "Player")
@@ -76,5 +77,10 @@ public class Asteroid : MonoBehaviour
             currentHealth -= 20;
         }
         
+    }
+    IEnumerator Obstacle()
+    {
+        yield return new WaitForSeconds(.5F);
+        gameObject.tag = "Obstacle";
     }
 }

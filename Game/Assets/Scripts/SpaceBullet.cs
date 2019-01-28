@@ -14,12 +14,15 @@ public class SpaceBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TargetFinder.clickedTarget != null)
+        if (TargetFinder.clickedTarget != null && TargetFinder.clickedTarget.tag == "Enemy")
         {
             transform.position = Vector2.MoveTowards(transform.position, TargetFinder.clickedTarget.transform.position, 10 * Time.deltaTime);
         }
-        else{
-            return;
+        
+            else
+        {
+            Destroy(gameObject);
+            }
         }
-    }
+    
 }

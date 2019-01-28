@@ -48,7 +48,7 @@ public class TargetFinder : MonoBehaviour
         {
             MoveToEnemy();
         }
-        else
+        if(clickedTarget== null || clickedTarget.transform.tag == "Obstacle")
         {
             transform.position = Vector2.MoveTowards(transform.position, ReturnPoint.transform.position, 2 * Time.deltaTime);
         }
@@ -80,6 +80,9 @@ public class TargetFinder : MonoBehaviour
     }
     void MoveToEnemy()
     {
+        if (clickedTarget.transform.tag == "Enemy")
+        {
             transform.position = Vector2.MoveTowards(transform.position, clickedTarget.transform.position, 2 * Time.deltaTime);
+        }
     }
 }
