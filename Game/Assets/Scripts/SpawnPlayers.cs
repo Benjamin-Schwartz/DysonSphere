@@ -6,6 +6,7 @@ public class SpawnPlayers : MonoBehaviour {
     public GameObject player;
     public StarterSphere StarterSphere;
     private ResourceManager resourceManager;
+    private MouseClick MouseClick;
 
    private float currentTime;
     public float rechargeTime;
@@ -14,27 +15,29 @@ public class SpawnPlayers : MonoBehaviour {
     private int maxMiners;
     // Use this for initialization
     void Start () {
-        maxMiners = 10;
-        numOfMiners = 5;
+        //maxMiners = 10;
+       // numOfMiners = 5;
         StarterSphere = FindObjectOfType<StarterSphere>();
         resourceManager = FindObjectOfType<ResourceManager>();
+        MouseClick = FindObjectOfType<MouseClick>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown("space") && StarterSphere.minerShooting == true)
         {
-            if (numOfMiners > 0)
+            if (MouseClick.Schwartzconium >= 25)
             {
                 Instantiate(player, transform.position, transform.rotation);
-                numOfMiners -= 1;
+                MouseClick.Schwartzconium -= 25;
+               // numOfMiners -= 1;
             }
            
             }
-        if (currentTime < rechargeTime)
+       /* if (currentTime < rechargeTime)
         {
             currentTime += Time.deltaTime;
-            if (currentTime >= rechargeTime && numOfMiners < maxMiners)
+            if (currentTime >= rechargeTime)
             {
                 numOfMiners += 1;
                 currentTime = 0;
@@ -44,7 +47,7 @@ public class SpawnPlayers : MonoBehaviour {
                 currentTime = 0;
             }
         }
-
+*/
     }
 
 

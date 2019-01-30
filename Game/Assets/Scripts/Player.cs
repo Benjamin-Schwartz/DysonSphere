@@ -88,7 +88,8 @@ public class Player : MonoBehaviour {
 
     IEnumerator Gather(float time)
     {
-        yield return new WaitForSeconds(time);
+        
+        yield return new WaitForSeconds(8);
 
    
         notification.GetComponent<Renderer>().enabled = true;

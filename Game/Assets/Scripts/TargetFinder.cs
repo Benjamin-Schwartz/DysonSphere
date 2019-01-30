@@ -29,19 +29,22 @@ public class TargetFinder : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            clickedTarget = targetSelect();
-            if (clickedTarget.transform.tag == "Enemy")
-            {
-                hasTarget = true;
-            }
-            else
-            {
-                hasTarget = false;
-                transform.position = Vector2.MoveTowards(transform.position, ReturnPoint.transform.position, 2 * Time.deltaTime);
-                return;
+
+            
+                clickedTarget = targetSelect();
+                if (clickedTarget.transform.tag == "Enemy")
+                {
+                    hasTarget = true;
+                }
+                else
+                {
+                    hasTarget = false;
+                    transform.position = Vector2.MoveTowards(transform.position, ReturnPoint.transform.position, 2 * Time.deltaTime);
+                    return;
+                }
             }
            
-        }
+        
         //  if (clickedTarget != null && clickedTarget.transform.tag == "Enemy" || clickedTarget.transform.tag == "Obstacle")
         //  {
         if (clickedTarget != null)

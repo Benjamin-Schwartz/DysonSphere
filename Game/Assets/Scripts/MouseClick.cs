@@ -1,20 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseClick : MonoBehaviour
 {
     private ResourceManager resourceManager;
     public GameObject clickSelection;
+    public Text Resource;
+    public float Schwartzconium;
     // Start is called before the first frame update
     void Start()
     {
         resourceManager = FindObjectOfType<ResourceManager>();
+        Schwartzconium = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Resource.text = "Schwartzconium: " + Schwartzconium;
         //This method returns the game object that was clicked using Raycast 2D
 
 
@@ -23,14 +28,16 @@ public class MouseClick : MonoBehaviour
         ///TOUCH CONTROL CHANGE
         {
             clickSelection=ClickSelect();
-            Debug.Log(clickSelection);
-                if(clickSelection.transform.tag == "Notification" && clickSelection.GetComponent<Renderer>().enabled == true)
+            if (clickSelection.transform.tag != "Button")
             {
-                clickSelection.GetComponent<Renderer>().enabled = false;
-                resourceManager.metalTracker += 5;
+                Debug.Log(clickSelection);
+                if (clickSelection.transform.tag == "Notification" && clickSelection.GetComponent<Renderer>().enabled == true)
+                {
+                    clickSelection.GetComponent<Renderer>().enabled = false;
+                    //  resourceManager.metalTracker += 5;
+                    Schwartzconium += 50;
+                }
             }
-
-        
 
         }
 

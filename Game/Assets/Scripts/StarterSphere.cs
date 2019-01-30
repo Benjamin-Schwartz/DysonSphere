@@ -15,7 +15,6 @@ public class StarterSphere : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Rotate();
-
     }
 
     void Rotate()
