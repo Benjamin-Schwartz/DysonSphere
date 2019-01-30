@@ -7,6 +7,7 @@ public class TurretSpawner : MonoBehaviour
     public GameObject turret;
     public StarterSphere StarterSphere;
     private ResourceManager resourceManager;
+    private MouseClick MouseClick;
 
     private float currentTime;
     public float rechargeTime;
@@ -16,24 +17,26 @@ public class TurretSpawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        maxTurrets = 10;
-        numOfTurrets = 3;
+        //maxTurrets = 10;
+        //numOfTurrets = 3;
         StarterSphere = FindObjectOfType<StarterSphere>();
         resourceManager = FindObjectOfType<ResourceManager>();
+        MouseClick = FindObjectOfType<MouseClick>();
     }
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown("space") && StarterSphere.turretShooting == true)
         {
-            if (numOfTurrets > 0)
+            if (MouseClick.Schwartzconium >=50)
             {
                 Instantiate(turret, transform.position, transform.rotation);
-                numOfTurrets -= 1;
+                MouseClick.Schwartzconium -= 50;
+               // numOfTurrets -= 1;
             }
 
         }
-        if (currentTime < rechargeTime)
+        /*if (currentTime < rechargeTime)
         {
             currentTime += Time.deltaTime;
 
@@ -47,7 +50,7 @@ public class TurretSpawner : MonoBehaviour
                 currentTime = 0;
             }
         }
-
+        */
     }
 
 
