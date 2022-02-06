@@ -1,4 +1,4 @@
 # DysonSphere
-Dyson Sphere Game
+Game involves protecting planet from attackers while it is rotating!
 
-## Dylan wuz here
+## 
